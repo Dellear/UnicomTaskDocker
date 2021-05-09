@@ -1,0 +1,29 @@
+name: Docker Image Publish
+
+on:
+  push:
+    branches:
+      - main
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    name: 构建Docker镜像
+    steps:
+      - name: Checkout master
+        uses: actions/checkout@master
+      - name: Build and publish image
+        uses: ilteoood/docker_buildx@master
+        with:
+          publish: true
+          imageName: dellear/unicom-task
+          dockerFile: Dockerfile
+          platform: linux/amd64,linux/arm64,linux/arm/v7
+          tag: latest
+          dockerUser: ${{ secrets.DOCKERHUB_USERNAME }}
+          dockerPassword: ${{ secrets.DOCKERHUB_PASSWORD }}
+      - name: Update repo description
+        uses: peter-evans/dockerhub-description@v2
+        with:
+          username: ${{ secrets.DOCKERHUB_USERNAME }}
+          password: ${{ secrets.DOCKERHUB_PASSWORD }}
+          repository: dellear/unicom-task

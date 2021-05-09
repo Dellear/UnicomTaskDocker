@@ -18,7 +18,7 @@ RUN sed -i 's/dl-cdn.alpinelinux.org/mirrors.aliyun.com/g' /etc/apk/repositories
                              libxslt-dev \
                              libxml2-dev \
     && git clone -b ${SCRIPT_BRANCH} ${SCRIPT_URL} ${SCRIPT_DIR} \
-    &&  pip install --no-cache-dir -r requirements.txt \
+    &&  pip install --no-cache-dir -r ${SCRIPT_DIR}/requirements.txt \
     && ln -sf /usr/share/zoneinfo/${TZ} /etc/localtime \
     && echo ${TZ} > /etc/timezone \
     && rm -rf /var/cache/* \

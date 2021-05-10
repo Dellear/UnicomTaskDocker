@@ -31,6 +31,8 @@ if [ ! -s /config/config.json ]; then
 fi
 
 echo -e "容器启动成功...\n"
+echo -e "定时任务如下...\n"
+crontab -l
 crond -f
 
 exec "$@"

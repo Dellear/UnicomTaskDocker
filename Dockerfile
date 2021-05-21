@@ -1,6 +1,6 @@
 FROM python:alpine
 COPY docker-entrypoint.sh /
-ARG SCRIPT_URL=https://github.com/srcrs/UnicomTask.git
+ARG SCRIPT_URL=https://gitee.com/amanlhw/UnicomTask.git
 ENV PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin \
     LANG=zh_CN.UTF-8 \
     PS1="\u@\h:\w\$ " \

@@ -1,2 +1,2 @@
-40 9,22 * * * cat /config/config.json > ${SCRIPT_DIR}/config.json && python ${SCRIPT_DIR}/main.py
+40 9,22 * * * cd ${SCRIPT_DIR} && cat /config/config.json > config.json && python main.py
 0 23 * * * cd ${SCRIPT_DIR} && git fetch --all && git reset --hard origin/${SCRIPT_BRANCH}

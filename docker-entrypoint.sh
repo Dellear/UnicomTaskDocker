@@ -8,9 +8,9 @@ fi
 
 echo -e "\n========================1. 更新脚本源代码========================\n"
 cd ${SCRIPT_DIR}
-# git fetch --all
-# git reset --hard origin/${SCRIPT_BRANCH}
-echo -e "因容易封库，先不更新代码了\n"
+git fetch --all
+git reset --hard origin/${SCRIPT_BRANCH}
+# echo -e "因容易封库，先不更新代码了\n"
 echo
 
 echo -e "========================2. 检测配置文件========================\n"

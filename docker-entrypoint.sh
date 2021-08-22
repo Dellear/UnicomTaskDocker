@@ -18,8 +18,10 @@ echo -e "========================2. 检测配置文件========================\n
 if [ ! -s /config/crontab.list ]; then
   echo -e "检测到config配置目录下不存在crontab.list，从脚本中复制一份用于初始化...\n"
   cp -fv ${SCRIPT_DIR}/config/crontab.list /config/crontab.list
-  echo -e "成功添加默认定时任务...\n"
 fi
+
+crontab /config/crontab.list
+echo -e "成功添加定时任务...\n"
 
 if [ ! -s /config/config.json ]; then
   echo -e "检测到config配置目录下不存在config.json，从脚本中复制一份用于初始化...\n"
@@ -27,9 +29,10 @@ if [ ! -s /config/config.json ]; then
   echo
 fi
 
-echo -e "容器启动成功...\n"
 echo -e "定时任务如下...\n"
 crontab -l
+
+echo -e "容器启动成功...\n"
 crond -f
 
 exec "$@"

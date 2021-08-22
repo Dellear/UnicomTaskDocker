@@ -2,7 +2,7 @@
 set -e
 
 if [ ! -d /config ]; then
-  echo -e "没有映射容器的/config配置到宿主机，请先按教程映射config配置目录...\n"
+  echo -e "没有映射容器的/config目录到宿主机，请先按教程映射config配置目录...\n"
   exit 1
 fi
 

@@ -23,7 +23,7 @@ services:
     hostname: unicom-task
     restart: always
     tty: true
-    network_mode: bridge
+    network_mode: bridge  #如果网络不正常，可以改成host
     volumes:
       - ./config:/config
 ```
